@@ -15,7 +15,7 @@ const Button = ({ onClick, color = "blue" }: Props) => {
   };
   return (
     <button
-      className={`${bgColorMap[color]} text-white py-2 px-4 rounded-full cursor-pointer`}
+      className={`${bgColorMap[color]} text-white py-3 px-28 rounded-full cursor-pointer`}
       onClick={onClick}
     >
       Click Me
