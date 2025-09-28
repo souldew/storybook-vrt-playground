@@ -4,12 +4,18 @@ import React from "react";
 
 type Props = {
   onClick?: () => void;
+  color?: "red" | "blue" | "green";
 };
 
-const Button = ({ onClick }: Props) => {
+const Button = ({ onClick, color = "blue" }: Props) => {
+  const bgColorMap = {
+    red: "bg-red-500",
+    blue: "bg-blue-500",
+    green: "bg-green-500",
+  };
   return (
     <button
-      className="bg-blue-500 text-white py-2 px-4 rounded cursor-pointer"
+      className={`${bgColorMap[color]} text-white py-2 px-4 rounded cursor-pointer`}
       onClick={onClick}
     >
       Click Me
