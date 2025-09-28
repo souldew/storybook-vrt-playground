@@ -2,7 +2,7 @@ name: Chromatic Visual Testing
 
 on:
   pull_request:
-    branches: [main] # mainブランチに対するPRで実行
+    branches: [main] # mainブランチへのPRで実行
 
 jobs:
   test:
@@ -12,15 +12,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # 全ての履歴を取得
+          fetch-depth: 0 # フルのGit履歴を取得
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: "pnpm" # pnpmのキャッシュを有効化
+
+      - name: Install pnpm
+        run: npm install -g pnpm # GitHub Actions環境にpnpmをグローバルインストール
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install # 依存関係をインストール
 
       - name: Run Chromatic
-        run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} # Chromatic実行
