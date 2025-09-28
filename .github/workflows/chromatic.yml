@@ -1,3 +1,9 @@
+name: Chromatic Visual Testing
+
+on:
+  pull_request:
+    branches: [main] # mainブランチへのPRで実行
+
 jobs:
   test:
     runs-on: ubuntu-latest
