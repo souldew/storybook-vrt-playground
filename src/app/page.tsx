@@ -1,21 +1,14 @@
-"use client";
-import Button from "@/components/Button/Button";
-import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
-  const [count, setCount] = useState(0);
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
   return (
-    <main className="bg-red-50">
-      <div className="h-screen flex justify-center self-stretch">
-        <div className="flex flex-col justify-center items-center h-full">
-          <div>{count}</div>
-          <Button onClick={handleClick} />
-        </div>
+    <div className="flex flex-col gap-4">
+      <div>
+        このページはindexページです。他のページへのリンク集として機能しています。
       </div>
-    </main>
+      <Link href="/about" className="text-blue-500">
+        About Page
+      </Link>
+    </div>
   );
 }
