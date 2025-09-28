@@ -9,6 +9,9 @@ export default function Home() {
       <Link href="/about" className="text-blue-500">
         About Page
       </Link>
+      <Link href="/isolate-about" className="text-blue-500">
+        Isolate About Page
+      </Link>
     </div>
   );
 }
